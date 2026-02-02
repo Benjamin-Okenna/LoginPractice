@@ -1,0 +1,144 @@
+*{
+ 
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-image: url(bg-intro-desktop.png);
+  background-color: rgba(255, 122, 122, 0.85);
+  background-blend-mode: multiply;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+ 
+  
+  
+
+}
+.container{
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 1rem;
+  padding: 2rem; 
+
+}
+
+@media (max-width: 900px){
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 375px){
+  body{
+    background-image: url(bg-intro-mobile.png);
+    background-color: rgba(255, 122, 122, 0.85);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+h1{
+  color: rgb(255, 255, 255)
+  
+}
+
+.leftBox{
+  display: flex;
+  flex-direction: column;
+  max-width: 25rem;
+  
+}
+
+.description{
+  color: rgb(233, 230, 230);
+  font-size: 12px;
+  
+}
+
+.rightBox{
+  display: flex;
+  flex-direction: column;
+  max-width: 28rem;
+  gap: 1rem;
+  
+  
+}
+.trial{
+  background: hsl(248, 32%, 49%);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 12px;
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
+  box-shadow: 0 5px 0 rgba(62, 60, 73, 0.2);
+  
+}
+.amount{
+  color:  hsl(246, 25%, 77%) ;
+
+}
+form{
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 4px;
+  box-shadow: 0 5px 0 rgba(62, 60, 73, 0.2);
+}
+form input{
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border-width: 1px;
+  text-decoration: solid;
+ 
+}
+#submit{
+  background: hsl(154, 59%, 51%);
+  color: rgb(255, 255, 255);
+  padding: 1rem 0;
+  border: 0;
+  border-radius: 4px;
+  border-bottom: 2px solid rgb(118, 184, 118);
+  cursor: pointer;
+}
+.condition{
+  font-size: 9px;
+  text-align: center;
+  color: hsl(246, 25%, 77%);
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.term{
+  color: hsl(0, 100%, 74%);
+}
+
+.form-control{
+  position: relative;
+}
+
+.form-control.error input{
+  border-color: hsl(0, 100%, 74%);
+}
+.form-control small {
+  color: hsl(0, 100%, 74%);
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  visibility: hidden;
+  font-size: 12px;
+}
+.form-control.error small {
+  visibility: visible;
+}
