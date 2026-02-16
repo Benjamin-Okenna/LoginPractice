@@ -1,122 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login page</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login page</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+rel="stylesheet"
+/>
 </head>
 <body>
-  <div class="container">
-    <div class="leftBox">
-      <h1>Learn to code by watching others</h1>
+<div class="container">
+<div class="leftBox">
+  <h1>Learn to code by watching others</h1>
 
-    <p class="description">See how experienced developers solve problems in a 
-      real-time. Watching scripted tutorials is great, but 
-      understanding how developers think is invaluable
+  <p class="description">
+    See how experienced developers solve problems in a real-time. Watching
+    scripted tutorials is great, but understanding how developers think is
+    invaluable
+  </p>
+</div>
+
+<div class="rightBox">
+  <div>
+    <p class="trial">
+      Try it free 7 days
+      <span class="amount">then $20/mo. thereafter</span>
     </p>
-    </div>
-
-    <div class="rightBox">
-      <div>
-        <p class="trial">Try it free 7 days <span class="amount">then $20/mo. thereafter</span></p>
-      </div>
-     
-      <form>
-        <div class="form-control">
-          <input type="text" id="firstname" placeholder="First Name">
-          <small class="error">Error Message</small>
-        </div>
-
-        <div class="form-control">
-          <input type="text" id="lastname" placeholder="Last Name">
-          <small class="error">Error Message</small>
-        </div>
-
-        <div class="form-control">
-           <input type="email" id="email" placeholder="Email Address">
-          <small class="error">Error Message</small>
-        </div>
-
-        <div class="form-control">
-         <input type="password" id="password" placeholder="Password">
-          <small class="error">Error Message</small>
-        </div>
-
-      <input type="submit" id="submit" placeholder="CLAIM YOUR FREE TRIAL">
-        <p class="condition">By clicking the button you are agreeing to our <span class="term">Terms and Services</span></p>
-      </form>
   </div>
-    </div>
-    
 
+  <form id="deForm" novalidate>
+  <div class="formBox">
+    <input type="text" id="firstname" placeholder="First Name" required />
+    <img class="errorIcon" src="icon-error.svg">
+    <small class="error">First name cannot be empty</small>
+  </div>
 
-  <script>
-const form = document.getElementById("form");
-const firstname = document.getElementById("firstname");
-const lastname = document.getElementById("lastname");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
+  <div class="formBox">
+    <input type="text" id="lastname" placeholder="Last Name" required />
+    <img class="errorIcon" src="icon-error.svg">
+    <small class="error">Last name cannot be empty</small>
+  </div>
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault(); // Stop form from submitting
+  <div class="formBox">
+    <input type="email" id="email" placeholder="Email Address" required />
+    <img class="errorIcon" src="icon-error.svg">
+    <small class="error">Looks like this is not an email</small>
+  </div>
 
-  checkInputs();
-});
+  <div class="formBox">
+    <input type="password" id="password" placeholder="Password" required />
+    <img class="errorIcon" src="icon-error.svg">
+    <small class="error">Password cannot be empty</small>
+  </div>
 
-function checkInputs() {
-  const firstnameValue = firstname.value.trim();
-  const lastnameValue = lastname.value.trim();
-  const emailValue = email.value.trim();
-  const passwordValue = password.value.trim();
+  <button type="submit" id="submitBtn">CLAIM YOUR FREE TRIAL</button>
 
-  if (firstnameValue === "") {
-    setError(firstname, "First Name cannot be empty");
-  } else {
-    setSuccess(firstname);
-  }
+  <p class="condition">
+    By clicking the button you are agreeing to our
+    <span class="term">Terms and Services</span>
+  </p>
+</form>
 
-  if (lastnameValue === "") {
-    setError(lastname, "Last Name cannot be empty");
-  } else {
-    setSuccess(lastname);
-  }
+</div>
+</div>
 
-  if (emailValue === "") {
-    setError(email, "Email cannot be empty");
-  } else if (!isValidEmail(emailValue)) {
-    setError(email, "Looks like this is not an email");
-  } else {
-    setSuccess(email);
-  }
-
-  if (passwordValue === "") {
-    setError(password, "Password cannot be empty");
-  } else {
-    setSuccess(password);
-  }
-}
-
-function setError(input, message) {
-  const formControl = input.parentElement;
-  const small = formControl.querySelector("small");
-  small.innerText = message;
-  formControl.className = "form-control error";
-}
-
-function setSuccess(input) {
-  const formControl = input.parentElement;
-  formControl.className = "form-control";
-}
-
-function isValidEmail(email) {
-  return /^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email);
-}
-</script>
-
-    
+<script src="script.js"></script>
 </body>
 </html>

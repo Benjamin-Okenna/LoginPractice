@@ -30,12 +30,13 @@ body{
 
 }
 
-@media (max-width: 900px){
-  .container{
-    display: flex;
-    flex-direction: column;
-  }
+  
+img{
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
+
 @media (max-width: 375px){
   body{
     background-image: url(bg-intro-mobile.png);
@@ -46,8 +47,19 @@ body{
     background-repeat: no-repeat;
   }
 }
+
+@media (max-width: 900px){
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+  .leftBox{
+    text-align: center;
+  }
+}
 h1{
   color: rgb(255, 255, 255)
+  
   
 }
 
@@ -55,12 +67,15 @@ h1{
   display: flex;
   flex-direction: column;
   max-width: 25rem;
+  line-height: 2.2em;
   
 }
 
 .description{
   color: rgb(233, 230, 230);
   font-size: 12px;
+  line-height: 1.8em;
+  margin-top: 1.8em;
   
 }
 
@@ -86,7 +101,7 @@ h1{
   color:  hsl(246, 25%, 77%) ;
 
 }
-form{
+form {
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -95,22 +110,83 @@ form{
   border-radius: 4px;
   box-shadow: 0 5px 0 rgba(62, 60, 73, 0.2);
 }
-form input{
-  width: 100%;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  border-width: 1px;
-  text-decoration: solid;
- 
+
+.formBox {
+  position: relative;
 }
-#submit{
+
+/* Hide error icon and message by default */
+.formBox .errorIcon,
+.formBox .error {
+  display: none;
+}
+
+input {
+  width: 100%;
+  padding: 14px 40px 14px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+/* Button styling */
+button {
   background: hsl(154, 59%, 51%);
-  color: rgb(255, 255, 255);
+  color: #fff;
   padding: 1rem 0;
   border: 0;
   border-radius: 4px;
   border-bottom: 2px solid rgb(118, 184, 118);
   cursor: pointer;
+}
+
+/* Error state styling */
+.formBox.error input {
+  border: 2px solid rgba(255, 122, 122, 0.85);
+}
+
+.formBox.error .errorIcon {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+}
+
+.formBox.error .error {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 55px;
+  color: rgba(255, 122, 122, 0.85);
+  font-size: 12px;
+  
+ 
+
+}
+/* Normal placeholder color for email */
+#email::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+/* Error placeholder color for email only */
+.formBox.error #email::placeholder {
+  color: rgba(255, 122, 122, 1); /* red */
+}
+
+/* Hide placeholders for first name, last name, and password in error state */
+.formBox.error input:not(#email)::placeholder {
+  color: transparent; /* hide text */
+}
+
+
+.formBox.error #email::placeholder {
+  color: rgba(255, 122, 122, 1); /* red */
+}
+
+.formBox.error{
+  margin-top: 4px;
+  margin-bottom: 15px;
 }
 .condition{
   font-size: 9px;
@@ -122,23 +198,6 @@ form input{
 
 .term{
   color: hsl(0, 100%, 74%);
+  font-weight: bold;
 }
 
-.form-control{
-  position: relative;
-}
-
-.form-control.error input{
-  border-color: hsl(0, 100%, 74%);
-}
-.form-control small {
-  color: hsl(0, 100%, 74%);
-  position: absolute;
-  bottom: -18px;
-  left: 0;
-  visibility: hidden;
-  font-size: 12px;
-}
-.form-control.error small {
-  visibility: visible;
-}
