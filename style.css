@@ -150,19 +150,20 @@ button {
   position: absolute;
   right: 10px;
   top: 14px;
+  width: 20px;
 }
 
 .formBox.error .error {
+ font-style: italic;
   display: block;
   position: absolute;
   right: 0;
   top: 55px;
   color: rgba(255, 122, 122, 0.85);
   font-size: 12px;
-  
- 
 
 }
+
 /* Normal placeholder color for email */
 #email::placeholder {
   color: #999;
@@ -185,6 +186,7 @@ button {
 }
 
 .formBox.error{
+ 
   margin-top: 4px;
   margin-bottom: 15px;
 }
